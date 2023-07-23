@@ -1,0 +1,23 @@
+.mediaScroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 300px;
+  gap: 20px;
+  overflow-x: auto;
+  padding-inline: 1rem;
+  overscroll-behavior-inline: contain;
+}
+
+.mediaElement {
+  inline-size: 300px;
+  height: 200px;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 16px;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    background-color: theme("colors.white");
+    border-radius: theme("borderRadius.xl");
+    padding: theme("spacing.6");
+    box-shadow: theme("boxShadow.xl");
+  }
+  .PhoneNumber {
+    -moz-appearance: textfield;
+  }
+  .PhoneNumber::-webkit-inner-spin-button,
+  .PhoneNumber::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background: #f8f9f8;
+}
+:root,
+body,
+html {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+small,
+i,
+img,
+div,
+header,
+html,
+label,
+li,
+nav,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
