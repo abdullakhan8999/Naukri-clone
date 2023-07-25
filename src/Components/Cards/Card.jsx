@@ -24,13 +24,13 @@ const Card = () => {
       ) : (
         <div className=" mx-auto mediaScroller snaps-inline">
           {jobs.length > 0 &&
-            jobs.map((job) => (
+            jobs.map((job, i) => (
               <Link
                 to={`/job/${job._id}`}
                 className="mediaElement decoration-none h-[250px]"
-                key={job.company_id}
+                key={i}
               >
-                <div className="card mediaElement py-5 bg-slate-200 flex items-start justify-start flex-col">
+                <div className="card hover:shadow-2xl mediaElement py-5 bg-slate-200 flex items-start justify-start flex-col">
                   <p className="text-xl font-bold text-[#0D0D0D]">
                     {job.title}
                   </p>

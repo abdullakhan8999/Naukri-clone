@@ -12,6 +12,7 @@ import store from "./store.js";
 import { LoadUser } from "./Actions/UserSignUp.js";
 import { LoadJobs } from "./Actions/JobsActions.js";
 import { LoadCompanies } from "./Actions/CompanyActions.js";
+import CompanyDetailsPage from "./Components/Company/CompanyDetailsPage.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -34,6 +35,11 @@ const App = () => {
         <Route exact path="/error" element={<ErrorPage />} />
         <Route exact path="/card" element={<Card />} />
         <Route exact path="/job/:JobId" element={<JobDetails />} />
+        <Route
+          exact
+          path="/company/:CompanyId"
+          element={<CompanyDetailsPage />}
+        />
       </Routes>
       <Footer />
     </Router>

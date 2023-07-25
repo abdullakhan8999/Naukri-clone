@@ -5,7 +5,7 @@ import linkedin from "../assets/linkedin.svg";
 import instagram from "../assets/instagram.svg";
 import facebook from "../assets/facebook.svg";
 import { Link } from "react-router-dom";
-import { footerLinks } from "../Constants/FooterConstants";
+import { footerLinks } from "../Constants/GeneralConstants";
 
 const Footers = () => {
   return (

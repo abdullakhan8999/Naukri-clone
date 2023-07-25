@@ -18,10 +18,6 @@ const CompanyCard = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  const handleCompany = (j) => {
-    alert(j);
-  };
-
   return (
     <>
       {companiesLoading ? (
@@ -31,14 +27,11 @@ const CompanyCard = () => {
           {companies.length > 0 &&
             companies.map((company) => (
               <Link
-                to="#"
+                to={`/company/${company._id}`}
                 className=" my-6 decoration-none"
                 key={company._id}
-                onClick={() => {
-                  handleCompany(company.name);
-                }}
               >
-                <div className="card w-[300px] h-[150px] py-5 bg-slate-200 flex items-start justify-center flex-col">
+                <div className="card hover:shadow-2xl w-[300px] h-[150px] py-5 bg-slate-200 flex items-start justify-center flex-col">
                   <p className="text-xl font-bold text-[#0D0D0D]">
                     {company.name}
                   </p>

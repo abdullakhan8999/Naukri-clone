@@ -25,7 +25,7 @@ const AdsCard = () => {
   ];
   return (
     <div className=" mx-auto mediaScroller snaps-inline py-8">
-      <div className="mb-3 relative overflow-hidden shadow-lg rounded-xl w-full">
+      <div className="mb-3 hover:shadow-2xl relative overflow-hidden shadow-lg rounded-xl w-full">
         <img
           className="object-cover aspect-video aspect-video"
           src={Photo1}
@@ -42,7 +42,7 @@ const AdsCard = () => {
           </a>
         </div>
       </div>
-      <div className="mb-3 overflow-hidden shadow-lg rounded-xl w-full">
+      <div className="mb-3 hover:shadow-2xl overflow-hidden shadow-lg rounded-xl w-full">
         <img className="object-cover aspect-video" src={Photo2} alt="Photo3" />
         <div className="p-2">
           <p className="text-sm font-bold">{bottomElements[1].title}</p>
@@ -55,7 +55,7 @@ const AdsCard = () => {
           </a>
         </div>
       </div>
-      <div className="mb-3 overflow-hidden shadow-lg rounded-xl w-full">
+      <div className="mb-3 hover:shadow-2xl overflow-hidden shadow-lg rounded-xl w-full">
         <img className="object-cover aspect-video" src={Photo3} alt="Photo3" />
         <div className="p-2">
           <p className="text-sm font-bold">{bottomElements[2].title}</p>

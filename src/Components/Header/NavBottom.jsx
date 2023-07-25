@@ -12,8 +12,8 @@ import { FaUserCircle } from "react-icons/fa";
 const NavBottom = () => {
   return (
     <div className="fixed bottom-0 py-2 bg-white w-full md:hidden shadow shadow-gary z-10 text-md font-bold flex items-center justify-around flex-row">
-      <ul className="relative flex items-center justify-around flex-row mx-auto">
-        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black mx-2">
+      <ul className="relative flex items-center gap-[2px] flex-row mx-auto">
+        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black ">
           <Menu as="div" className="relative inline-block text-left">
             <div>
               <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-bold text-gray-500 ring-0 ring-inset hover:text-gray-900">
@@ -61,7 +61,7 @@ const NavBottom = () => {
             </Transition>
           </Menu>
         </li>
-        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black mx-2">
+        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black ">
           <Menu as="div" className="relative inline-block text-left">
             <div>
               <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-500 ring-0 ring-inset hover:text-gray-900">
@@ -111,7 +111,7 @@ const NavBottom = () => {
             </Transition>
           </Menu>
         </li>
-        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black mx-2">
+        <li className="group cursor-pointer text-sm text-slate-600 hover:text-black ">
           <Menu as="div" className="relative inline-block text-left">
             <div>
               <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-500 ring-0 ring-inset hover:text-gray-900">
@@ -161,7 +161,7 @@ const NavBottom = () => {
             </Transition>
           </Menu>
         </li>
-        <li className="flex items-center  justify-center flex-col cursor-pointer text-2xl text-slate-600 hover:text-black mx-2">
+        <li className="flex items-center  justify-center flex-col cursor-pointer text-2xl text-slate-600 hover:text-black ">
           <Link
             to="/"
             className="flex items-center justify-center flex-col decoration-none"
