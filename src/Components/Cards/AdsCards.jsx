@@ -24,13 +24,9 @@ const AdsCard = () => {
     },
   ];
   return (
-    <div className=" mx-auto mediaScroller snaps-inline py-8">
-      <div className="mb-3 hover:shadow-2xl relative overflow-hidden shadow-lg rounded-xl w-full">
-        <img
-          className="object-cover aspect-video aspect-video"
-          src={Photo1}
-          alt="Photo1"
-        />
+    <div className=" mx-auto mediaScroller snaps-inline py-8 scrollbar-hide">
+      <div className="mb-3 hover:shadow-2xl relative overflow-hidden scrollbar-hide shadow-lg rounded-xl w-full">
+        <img className="object-cover aspect-video" src={Photo1} alt="Photo1" />
         <div className="p-2">
           <p className="text-sm font-bold">{bottomElements[0].title}</p>
           <p className="text-xs text-gray-500 mb-3">{bottomElements[0].data}</p>

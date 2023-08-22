@@ -35,11 +35,14 @@ const SignUpStudent = () => {
       setMessageTheme("text-red-500 font-bold");
       dispatch(clearErrors());
     }
+  }, [dispatch, error]);
+
+  useEffect(() => {
     if (isAuthenticated) {
       setMessage("Student Registered Successfully");
       setMessageTheme("text-green-500 font-bold");
     }
-  }, [dispatch, error, isAuthenticated]);
+  }, [isAuthenticated]);
 
   //get Student data from from
   const [student, setStudent] = useState({

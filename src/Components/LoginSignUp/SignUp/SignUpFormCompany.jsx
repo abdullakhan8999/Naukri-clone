@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, registerCompany } from "../../../Actions/UserSignUp";
+import {
+  categoriesConstant,
+  departmentsConstant,
+} from "../../../Constants/GeneralConstants";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   //set data from state
+
   const { error, isAuthenticated } = useSelector((state) => state.user);
 
   //result message
   const [message, setMessage] = useState("");
   const [messageT, setMessageT] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedDepartments, setSelectedDepartments] = useState([]);
 
   // message
   useEffect(() => {
@@ -39,35 +49,77 @@ const SignUpForm = () => {
     location: "",
     password: "",
     description: "",
+    companySize: "",
+    companyCategories: "",
   });
 
-  const { name, email, password, description, location } = user;
+  const { name, email, password, description, location, companySize } = user;
 
   //On change values
   const registerCompanyDataChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  //register HandleSignUpSubmit
+  // register HandleSignUpSubmit
   const registerCompanySubmit = (e) => {
     e.preventDefault();
 
     const myForm = new FormData();
 
+    myForm.set("role", "company");
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("location", location);
     myForm.set("password", password);
     myForm.set("description", description);
-    myForm.set("role", "company");
+    myForm.set("companySize", companySize);
+
+    // Set companyCategories directly from selectedCategories
+    selectedCategories.forEach((category) => {
+      myForm.append("companyCategories[]", category);
+    });
+
+    // Set companyDepartments directly from selectedDepartments
+    selectedDepartments.forEach((department) => {
+      myForm.append("companyDepartments[]", department);
+    });
+
     dispatch(registerCompany(myForm));
   };
 
+  // console.log(selectedCategories);
   // console.log(user);
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+    if (event.target.value === "") return;
+    setSelectedCategories([...selectedCategories, event.target.value]);
+  };
+  const handleRemoveCategory = (e, category) => {
+    e.preventDefault();
+    const newSelectedCategories = selectedCategories.filter(
+      (c) => c !== category
+    );
+    setSelectedCategories(newSelectedCategories);
+  };
+
+  const handleDepartmentChange = (event) => {
+    setSelectedDepartment(event.target.value);
+    if (event.target.value === "") return;
+    setSelectedDepartments([...selectedDepartments, event.target.value]);
+  };
+  const handleRemoveDepartment = (e, department) => {
+    e.preventDefault();
+    const newSelectedDepartments = selectedDepartments.filter(
+      (d) => d !== department
+    );
+    setSelectedDepartments(newSelectedDepartments);
+  };
+
   return (
     <>
       <p className=" text-2xl pt-5 font-bold pb-[2rem]">
-        Find a Best employees
+        Join Us and Find a Best Contributors
       </p>
       <form
         className="w-full  mx-auto"
@@ -110,7 +162,7 @@ const SignUpForm = () => {
               onChange={registerCompanyDataChange}
             />
           </div>
-          <div className="w-full md:w-full px-3  mb-6  md:mt-6">
+          <div className="w-full px-3  mb-6  md:mt-6">
             <label
               htmlFor="description"
               className="block mb-2 text-sm font-medium text-gray-900"
@@ -128,7 +180,116 @@ const SignUpForm = () => {
               onChange={registerCompanyDataChange}
             />
           </div>
-          <div className="w-full md:w-full px-3  md:mt-6">
+
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 md:mt-6">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="companyCategory"
+            >
+              Company Category
+            </label>
+            <select
+              id="companyCategory"
+              name="companyCategory"
+              required
+              className="cursor-pointer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+            >
+              <option className="cursor-pointer" value="">
+                Select a category
+              </option>
+              {categoriesConstant.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 md:mt-6">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="selectedCategories"
+            >
+              Selected Category
+            </label>
+            <div className="flex flex-wrap -mx-3 mb-6">
+              {selectedCategories.length > 0 ? (
+                selectedCategories.map((select) => (
+                  <button
+                    key={select}
+                    onClick={(e) => handleRemoveCategory(e, select)}
+                    className="bg-gray-200 cursor-pointer relative text-gray-700 border border-gray-200 rounded me-2 mb-2 py-3 px-4 leading-tight hover:outline-none hover:bg-white hover:border-gray-500 group"
+                  >
+                    {select}
+                    <AiFillCloseCircle
+                      className="text-red-700 hidden group-hover:block absolute -top-2 -right-2"
+                      size={20}
+                    />
+                  </button>
+                ))
+              ) : (
+                <p className="bg-gray-200 text-gray-700 border border-gray-200 rounded me-2 mb-2 py-3 px-4 leading-tight">
+                  No Category Selected
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 px-3 md:mb-0 md:mt-6">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="companyDepartment"
+            >
+              Company Departments
+            </label>
+            <select
+              id="companyDepartment"
+              name="companyDepartment"
+              required
+              className="cursor-pointer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              value={selectedDepartment}
+              onChange={handleDepartmentChange}
+            >
+              <option className="cursor-pointer" value="">
+                Select a department
+              </option>
+              {departmentsConstant.map((department) => (
+                <option key={department} value={department}>
+                  {department}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="w-full md:w-1/2 px-3 md:mb-0 md:mt-6">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="selectedDepartments"
+            >
+              Selected Departments
+            </label>
+            <div className="flex flex-wrap -mx-3 mb-6">
+              {selectedDepartments.length > 0 ? (
+                selectedDepartments.map((department) => (
+                  <button
+                    key={department}
+                    onClick={(e) => handleRemoveDepartment(e, department)}
+                    className="bg-gray-200 cursor-pointer relative text-gray-700 border border-gray-200 rounded me-2 mb-2 py-3 px-4 leading-tight hover:outline-none hover:bg-white hover:border-gray-500 group"
+                  >
+                    {department}
+                    <AiFillCloseCircle
+                      className="text-red-700 hidden group-hover:block absolute -top-2 -right-2"
+                      size={20}
+                    />
+                  </button>
+                ))
+              ) : (
+                <p className="bg-gray-200 text-gray-700 border border-gray-200 rounded me-2 mb-2 py-3 px-4 leading-tight">
+                  No Department Selected
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 px-3 md:mt-6">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="email"
@@ -143,6 +304,25 @@ const SignUpForm = () => {
               required
               name="email"
               value={email}
+              onChange={registerCompanyDataChange}
+            />
+          </div>
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 md:mt-6">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="companySize"
+            >
+              Company Size
+            </label>
+            <input
+              type="number"
+              min={1}
+              id="companySize"
+              className="PhoneNumber appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              placeholder="Tell us your company size..."
+              required
+              name="companySize"
+              value={companySize}
               onChange={registerCompanyDataChange}
             />
           </div>
@@ -216,3 +396,13 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
+
+// title,
+// description,
+// location,
+// department,
+// requirement,
+// salary,
+// experience,
+// vacancies,
+// hiring_status

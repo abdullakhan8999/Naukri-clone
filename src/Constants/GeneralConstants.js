@@ -37,4 +37,145 @@ export const location =
       "Netflix jobs in New Delhi",
       "Netflix jobs in Delhi Ncr",
       "Netflix jobs in Chennai",
-      "Netflix jobs in Dadra & Nagar Haveli Silvassa "]
+      "Netflix jobs in Dadra & Nagar Haveli Silvassa "];
+
+export const CompanyFilter = ["department", "location", "salary", "experience", "requirements", "companies",];
+
+export const departmentsConstant = [
+   "Sales",
+   "Marketing",
+   "Finance",
+   "Human Resources",
+   "Engineering",
+   "Product Development",
+   "Customer Support",
+   "Operations",
+   "Research and Development",
+   "Quality Assurance",
+   "Information Technology",
+   "Design",
+   "Supply Chain",
+   "Legal",
+   "Public Relations",
+   "Project Management",
+   "Business Development",
+   "Training and Development",
+   "Administration",
+   "Logistics",
+];
+
+export const categoriesConstant = [
+   "Technology",
+   "Healthcare",
+   "Finance",
+   "Retail",
+   "Manufacturing",
+   "Food & Beverage",
+   "Education",
+   "Entertainment",
+   "Real Estate",
+   "Automotive",
+   "Travel & Tourism",
+   "Energy & Utilities",
+   "Agriculture",
+   "Fashion & Apparel",
+   "Media & Communication",
+   "Construction",
+   "Pharmaceuticals",
+   "Nonprofit & Philanthropy",
+   "Professional Services",
+   "Sports & Fitness",
+];
+
+export const requirementsConstants = [
+   // Tech - Software Engineering
+   "Degree",
+   "Programming",
+   "Problem-Solving",
+   "Agile",
+   "Git",
+   "WebDev",
+   "Databases",
+   "Architecture",
+   "Cloud",
+   "Security",
+   "Algorithm",
+   "Testing",
+   "MobileDev",
+   "Networking",
+   "VersionControl",
+
+   // Tech - Data Science
+   "DataAnalysis",
+   "MachineLearning",
+   "Statistics",
+   "Python",
+   "DataVisualization",
+   "BigData",
+   "SQL",
+   "DataCleaning",
+   "AI",
+
+   // Tech - IT / System Administration
+   "Troubleshooting",
+   "NetworkAdmin",
+   "ServerManagement",
+   "Cybersecurity",
+   "Virtualization",
+   "BackupRecovery",
+   "Linux",
+   "Windows",
+   "Scripting",
+
+   // Non-Tech - Marketing
+   "Communication",
+   "Strategy",
+   "Digital",
+   "Analytics",
+   "SEO",
+   "Creativity",
+   "MarketResearch",
+   "Branding",
+   "SocialMedia",
+   "ContentCreation",
+
+   // Non-Tech - Human Resources
+   "Laws",
+   "Interpersonal",
+   "Recruitment",
+   "Organizational",
+   "EmployeeRelations",
+   "Training",
+   "PerformanceManagement",
+   "CompensationBenefits",
+   "HRIS",
+
+   // Non-Tech - Finance
+   "Accounting",
+   "Regulations",
+   "FinancialAnalysis",
+   "Budgeting",
+   "Investment",
+   "RiskManagement",
+   "Auditing",
+   "Taxation",
+   "FinancialReporting",
+
+   // Common
+   "CriticalThinking",
+   "Leadership",
+   "Teamwork",
+   "TimeManagement",
+   "Adaptability",
+   "ProblemSolving",
+   "AttentionToDetail",
+   "Communication",
+   "AnalyticalSkills",
+   "Creativity",
+   "DecisionMaking",
+   "CustomerService",
+   "Negotiation",
+   "PresentationSkills"
+];
+
+

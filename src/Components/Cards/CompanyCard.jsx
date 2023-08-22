@@ -4,6 +4,7 @@ import { SlLocationPin } from "react-icons/sl";
 import "./Card.css";
 import { useSelector } from "react-redux";
 import Loader from "../Loader";
+import ScrollToTop from "../../Utils/ScrollToTop";
 
 const CompanyCard = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const CompanyCard = () => {
       {companiesLoading ? (
         <Loader />
       ) : (
-        <div className=" mx-auto mediaScroller snaps-inline">
+        <div className=" mx-auto mediaScroller snaps-inline scrollbar-hide">
           {companies.length > 0 &&
             companies.map((company) => (
               <Link
@@ -31,7 +32,7 @@ const CompanyCard = () => {
                 className=" my-6 decoration-none"
                 key={company._id}
               >
-                <div className="card hover:shadow-2xl w-[300px] h-[150px] py-5 bg-slate-200 flex items-start justify-center flex-col">
+                <div className="card hover:shadow-2xl ease-in-out duration-300  w-[300px] h-[150px] py-5 bg-slate-200 flex items-start justify-center flex-col">
                   <p className="text-xl font-bold text-[#0D0D0D]">
                     {company.name}
                   </p>

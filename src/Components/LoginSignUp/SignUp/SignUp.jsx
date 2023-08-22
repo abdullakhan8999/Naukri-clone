@@ -33,8 +33,8 @@ const SignUp = () => {
         navigate("/engineer");
       } else if (user.role === "student") {
         navigate("/home");
-      } else if ((user.role = "company")) {
-        navigate("/company");
+      } else if (user.role === "company") {
+        navigate("/profile");
       }
     }
   }, [isAuthenticated]);

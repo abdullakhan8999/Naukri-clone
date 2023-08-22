@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/naukri_Logo.png";
 import { Link } from "react-router-dom";
 import LoginPage from "./Login";
 import SignUp from "./SignUp/SignUp";
 import { useSelector } from "react-redux";
 import Loader from "../Loader";
+import store from "../../store";
+import { LoadJobs } from "../../Actions/JobsActions";
+import { LoadCompanies } from "../../Actions/CompaniesActions";
+import TakeToTop from "../Layout/TakeToTop";
 
 const Header = () => {
-  const { loading } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
+  useEffect(() => {
+    if (isAuthenticated) {
+      // load jobs
+      store.dispatch(LoadJobs());
+
+      //loading Companies
+      store.dispatch(LoadCompanies());
+    }
+  }, [isAuthenticated]);
 
   const [showLogin, setShowLogin] = useState(true);
 
@@ -38,32 +51,7 @@ const Header = () => {
                 {showLogin ? "" : " here"}
               </p>
             </div>
-            <a href="#" className=" fixed bottom-10">
-              <svg
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                aria-hidden="true"
-                role="img"
-                className="w-[50px] h-[50px] rounded-full iconify iconify--twemoji"
-                preserveAspectRatio="xMidYMid meet"
-                fill="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    fill="#37a9eb"
-                    d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"
-                  ></path>
-                  <path fill="#FFF" d="M22 29v-9h7L18 7L7 20h7v9z"></path>
-                </g>
-              </svg>
-            </a>
+            <TakeToTop />
           </div>
         )}
       </nav>

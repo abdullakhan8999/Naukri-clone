@@ -1,43 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SlLocationPin } from "react-icons/sl";
 import homeMail from "../../assets/home-mail.png";
 import companyAds from "../../assets/companyAds.svg";
-import Photo1 from "../../assets/photo-right-img.jpeg";
-import Photo2 from "../../assets/photo-home-bottom-1.jpeg";
-import Photo3 from "../../assets/photo-home-bottom-2.jpg";
 import JobsCard from "../Cards/Card";
 import AdsCard from "../Cards/AdsCards";
 import CompanyCard from "../Cards/CompanyCard";
-import { useDispatch, useSelector } from "react-redux";
 
 const HomeMid = () => {
-  let bottomElements = [
-    {
-      img: { Photo1 },
-      title: "",
-      data: "",
-    },
-    {
-      img: { Photo2 },
-      title:
-        "Understanding Hiring Trends With Naukri JobSpeak Report- November 2022",
-      data: "2d ago",
-    },
-    {
-      img: { Photo3 },
-      title:
-        "How to Answer ”What Is Your Management Style?” With Sample Answers",
-      data: "1d ago",
-    },
-  ];
-
   return (
     <>
       <div className="card w-full mb-8">
         <div className="flex items-center justify-between mb-3">
           <p className="text-lg">Recommended jobs</p>
-          <Link to="#" className="text-lg text-blue-500 hover:text-blue-700">
+          <Link
+            to="/jobs"
+            className="text-lg text-blue-500 hover:text-blue-700"
+          >
             View all
           </Link>
         </div>
@@ -45,25 +23,31 @@ const HomeMid = () => {
           <JobsCard />
         </div>
       </div>
-      <div className="card w-full mb-8 py-8 mx-auto flex items-center justify-center">
+      <div className="card w-full mb-8 py-8 mx-auto flex items-center justify-start">
         <div className=" me-[3%]">
           <img src={homeMail} alt="homeMailImg" className="w-[100px]" />
         </div>
         <div className="">
-          <p className="text-lg">Recruiters are inviting you to apply!</p>
-          <Link to="#" className="text-sm text-blue-500 hover:text-blue-700">
+          <p className="text-lg">Apply for jobs with us!</p>
+          <Link
+            to="/jobs"
+            className="text-sm text-blue-500 hover:text-blue-700"
+          >
             View all
           </Link>
         </div>
       </div>
-      <div className="card w-full mb-8">
+      <div className="card w-full  mb-8">
         <div className="flex items-center justify-between mb-3">
           <p className="text-lg">Top Companies</p>
-          <Link to="#" className="text-lg text-blue-500 hover:text-blue-700">
+          <Link
+            to="/companies"
+            className="text-lg text-blue-500 hover:text-blue-700"
+          >
             View all
           </Link>
         </div>
-        <div className=" w-full py-5 flex items-center">
+        <div className=" w-full py-5 flex items-center justify-start">
           <CompanyCard />
         </div>
       </div>

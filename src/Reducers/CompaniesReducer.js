@@ -1,7 +1,13 @@
 import {
-   LOAD_COMPANY_REQUEST,
-   LOAD_COMPANY_SUCCESS,
-   LOAD_COMPANY_FAIL,
+   LOAD_COMPANIES_REQUEST,
+   LOAD_COMPANIES_SUCCESS,
+   LOAD_COMPANIES_FAIL,
+   FILTER_COMPANIES_REQUEST,
+   FILTER_COMPANIES_SUCCESS,
+   FILTER_COMPANIES_FAIL,
+   GET_COMPANIES_DETAILS_REQUEST,
+   GET_COMPANIES_DETAILS_SUCCESS,
+   GET_COMPANIES_DETAILS_FAIL,
    CLEAR_ERRORS,
 } from "../Constants/CompanyConstants";
 import { createReducer } from "@reduxjs/toolkit";
@@ -12,14 +18,36 @@ const initialState = { companies: {} };
 // Reducers
 export const companiesReducer = createReducer(initialState, (builder) => {
    builder
-      .addCase(LOAD_COMPANY_REQUEST, (state) => {
+      .addCase(GET_COMPANIES_DETAILS_REQUEST, (state) => {
          state.companiesLoading = true;
       })
-      .addCase(LOAD_COMPANY_SUCCESS, (state, action) => {
+      .addCase(GET_COMPANIES_DETAILS_SUCCESS, (state, action) => {
          state.companiesLoading = false;
          state.companies = action.payload;
       })
-      .addCase(LOAD_COMPANY_FAIL, (state, action) => {
+      .addCase(GET_COMPANIES_DETAILS_FAIL, (state, action) => {
+         state.companiesLoading = false;
+         state.error = action.payload;
+      })
+      .addCase(LOAD_COMPANIES_REQUEST, (state) => {
+         state.companiesLoading = true;
+      })
+      .addCase(LOAD_COMPANIES_SUCCESS, (state, action) => {
+         state.companiesLoading = false;
+         state.companies = action.payload;
+      })
+      .addCase(LOAD_COMPANIES_FAIL, (state, action) => {
+         state.companiesLoading = false;
+         state.error = action.payload;
+      })
+      .addCase(FILTER_COMPANIES_REQUEST, (state) => {
+         state.companiesLoading = true;
+      })
+      .addCase(FILTER_COMPANIES_SUCCESS, (state, action) => {
+         state.companiesLoading = false;
+         state.companies = action.payload;
+      })
+      .addCase(FILTER_COMPANIES_FAIL, (state, action) => {
          state.companiesLoading = false;
          state.error = action.payload;
       })

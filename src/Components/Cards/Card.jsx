@@ -22,7 +22,7 @@ const Card = () => {
       {jobsLoading ? (
         <Loader />
       ) : (
-        <div className=" mx-auto mediaScroller snaps-inline">
+        <div className=" mx-auto mediaScroller snaps-inline scrollbar-hide">
           {jobs.length > 0 &&
             jobs.map((job, i) => (
               <Link
@@ -30,7 +30,7 @@ const Card = () => {
                 className="mediaElement decoration-none h-[250px]"
                 key={i}
               >
-                <div className="card hover:shadow-2xl mediaElement py-5 bg-slate-200 flex items-start justify-start flex-col">
+                <div className="card hover:shadow-2xl ease-in-out duration-300 mediaElement py-5 bg-slate-200 flex items-start justify-start flex-col">
                   <p className="text-xl font-bold text-[#0D0D0D]">
                     {job.title}
                   </p>

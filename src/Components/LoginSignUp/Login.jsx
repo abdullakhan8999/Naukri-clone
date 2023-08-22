@@ -29,8 +29,16 @@ const LoginPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setMessage("");
+      dispatch(clearErrors());
     }, 5000);
   }, [message]);
+
+  useEffect(() => {
+    if (error) {
+      setMessageT("text-red-500 font-bold");
+      setMessage(error);
+    }
+  }, []);
 
   // HandleSLogin
   const loginSubmit = (e) => {
@@ -42,27 +50,18 @@ const LoginPage = () => {
 
   //set message
   useEffect(() => {
-    if (error) {
-      console.log(error);
-      setMessage(error);
-      setMessageT("text-red-500 font-bold");
-      dispatch(clearErrors());
-      navigate("/error");
-    }
     if (isAuthenticated) {
       setMessageT("text-green-500 font-bold");
       setMessage("Login Successfully");
-      if (user.role === "admin") {
-        navigate("/admin");
+      if (user.role === "admin" || user.role === "company") {
+        navigate("/profile");
       } else if (user.role === "engineer") {
         navigate("/engineer");
       } else if (user.role === "student") {
         navigate("/home");
-      } else if ((user.role = "company")) {
-        navigate("/company");
       }
     }
-  }, [dispatch, error, user, isAuthenticated]);
+  }, [dispatch, user, isAuthenticated]);
 
   return (
     <>

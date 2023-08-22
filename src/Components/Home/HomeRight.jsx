@@ -27,7 +27,7 @@ const HomeRight = () => {
             key={i}
             className={`${
               answers === i ? "bg-zinc-400 text-white" : ""
-            } text-[0.65rem] mb-2 rounded-2xl hover:bg-zinc-400 ring-1 ring-black  p-1 px-2`}
+            } text-[0.65rem] mb-2 rounded-lg hover:bg-zinc-400 ring-1 ring-black  p-1 px-2`}
             onClick={(e) => setAnswers(i)}
           >
             {item}
