@@ -38,6 +38,7 @@ const JobsApplications = ({ applications, user, setIsUpdate }) => {
       application_status: applicationStatus,
     };
     await dispatch(updateJobApplication(updateData));
+    await dispatch(LoadJobsApplications());
   };
   const handleCloseUpdateJobApplication = () => {
     setUpdateApplicationId("");

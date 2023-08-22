@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // import { BASE_URL } from "./src/Constants/BaseURl.js";
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://crm-backend-system-employee-hiring.onrender.com";
 
 
 // https://vitejs.dev/config/

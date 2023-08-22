@@ -3,7 +3,7 @@ import LoginImg from "../../assets/login-welcome2.png";
 import Loader from "../Loader";
 import { loginPageConstants } from "../../Constants/LoginConstants";
 import { useDispatch, useSelector } from "react-redux";
-
+import { FaUser, FaUserShield } from "react-icons/fa";
 import { clearErrors, login } from "../../Actions/UserSignUp";
 import { useNavigate } from "react-router-dom";
 
@@ -63,6 +63,25 @@ const LoginPage = () => {
     }
   }, [dispatch, user, isAuthenticated]);
 
+  //function
+  const handleSetDemoStudent = () => {
+    //preset Users
+    const demoStudent = {
+      email: "demoUser@gmail.com",
+      password: "demoUser@123",
+    };
+    setLoginEmail(demoStudent.email);
+    setLoginPassword(demoStudent.password);
+  };
+
+  const handleSetDemoAdmin = () => {
+    const demoAdmin = {
+      email: "ADMIN_EMAIL@gmail.com",
+      password: "ADMIN_PASSWORD",
+    };
+    setLoginEmail(demoAdmin.email);
+    setLoginPassword(demoAdmin.password);
+  };
   return (
     <>
       {loading ? (
@@ -148,6 +167,39 @@ const LoginPage = () => {
               >
                 Submit
               </button>
+
+              <div className="flex justify-between gap-4 mt-8">
+                <div
+                  className="bg-gray-100 p-3 rounded-lg shadow-md w-1/2 cursor-pointer"
+                  onClick={() => handleSetDemoStudent()}
+                  title="Click to see the demo student details"
+                >
+                  <h3 className="flex items-center text-lg mb-2">
+                    <FaUser className="mr-2" /> Student Details
+                  </h3>
+                  <p>
+                    <strong>Email:</strong> demoUser@gmail.com
+                  </p>
+                  <p>
+                    <strong>Password:</strong> demoUser@123
+                  </p>
+                </div>
+                <div
+                  className="bg-gray-100 p-3 rounded-lg shadow-md w-1/2 cursor-pointer"
+                  onClick={() => handleSetDemoAdmin()}
+                  title="Click to see the demo admin details"
+                >
+                  <h3 className="flex items-center text-lg mb-2">
+                    <FaUserShield className="mr-2" /> Admin Details
+                  </h3>
+                  <p>
+                    <strong>Email:</strong> ADMIN_EMAIL@gmail.com
+                  </p>
+                  <p>
+                    <strong>Password:</strong> ADMIN_PASSWORD
+                  </p>
+                </div>
+              </div>
 
               <p className={`text-center h-[20px] py-5 ${messageT}`}>
                 {message}

@@ -25,7 +25,7 @@ const Admin = () => {
   const [editUserName, setEditUserName] = useState("");
   const [editEmail, setEditEmail] = useState("");
   const [showEditUserName, setShowEditUserName] = useState(false);
-  const [showSection, setShowSection] = useState("Students");
+  const [showSection, setShowSection] = useState("Jobs");
 
   const { jobsLoading } = useSelector((state) => state.jobs);
   const { companiesLoading } = useSelector((state) => state.companies);
@@ -173,25 +173,6 @@ const Admin = () => {
               <ul className="mt-[50px] flex items-center justify-start gap-4">
                 <li
                   className=" cursor-pointer "
-                  onClick={() => handleShowSection("Overview")}
-                >
-                  <span
-                    className={`${
-                      showSection === "Overview" &&
-                      "text-black font-bold tracking-widest"
-                    }`}
-                  >
-                    Overview
-                  </span>
-                  <p
-                    className={`${
-                      showSection === "Overview" &&
-                      "bg-black h-[2px] rounded-full"
-                    }`}
-                  ></p>
-                </li>
-                <li
-                  className=" cursor-pointer "
                   onClick={() => handleShowSection("Jobs")}
                 >
                   <span
@@ -265,6 +246,25 @@ const Admin = () => {
                     }`}
                   ></p>
                 </li>
+                <li
+                  className=" cursor-pointer "
+                  onClick={() => handleShowSection("Overview")}
+                >
+                  <span
+                    className={`${
+                      showSection === "Overview" &&
+                      "text-black font-bold tracking-widest"
+                    }`}
+                  >
+                    Overview
+                  </span>
+                  <p
+                    className={`${
+                      showSection === "Overview" &&
+                      "bg-black h-[2px] rounded-full"
+                    }`}
+                  ></p>
+                </li>
               </ul>
               <p className=" bg-slate-300 h-[1px] w-full rounded-full mb-6"></p>
             </div>
@@ -273,7 +273,7 @@ const Admin = () => {
               className={`md:w-[1128px] w-ful mx-auto flex items-start justify-between w-full gap-4  mb-[70px]`}
             >
               {/* {showSection === "Overview" && (
-                <OverViewSection company={company} />
+                <OverViewSection />
               )} */}
               {showSection === "Jobs" && <JobsSection />}
               {showSection === "Companies" && <CompaniesSection />}
