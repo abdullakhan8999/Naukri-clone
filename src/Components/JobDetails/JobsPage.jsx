@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import JobDetailsCard from "./JobDetailsCard";
+import JobDetailsCard from "./JobDetailsCard.jsx";
 import TakeToTop from "../Layout/TakeToTop";
 import { CompanyFilter } from "../../Constants/GeneralConstants";
 import { AiFillCaretDown } from "react-icons/ai";
