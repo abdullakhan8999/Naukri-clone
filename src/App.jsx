@@ -4,7 +4,7 @@ import Home from "./Components/Home/Home.jsx";
 import LoginSignUpPage from "./Components/LoginSignUp/LoginSignUpPage";
 import Footer from "./Components/Footers.jsx";
 import JobDetails from "./Components/JobDetails/JobDetails.jsx";
-import JobsPage from "./Components/JobsPage/JobsPage.jsx";
+import JobsPage from "./Components/JobDetails/JobsPage.jsx";
 import CompaniesPage from "./Components/companiesPage/companiesPage.jsx";
 import store from "./store.js";
 import { LoadUser } from "./Actions/UserSignUp.js";
