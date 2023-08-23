@@ -14,8 +14,6 @@ import { LoadJobsApplications } from "../../Actions/jobApplicationsActions";
 
 const JobDetailsCard = ({ job, related }) => {
   const { user } = useSelector((state) => state.user);
-  // get State
-  // const { applications } = useSelector((state) => state.applications);
   const dispatch = useDispatch();
 
   const navigation = useNavigate();
