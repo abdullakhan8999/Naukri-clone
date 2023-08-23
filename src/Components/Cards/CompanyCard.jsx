@@ -4,7 +4,6 @@ import { SlLocationPin } from "react-icons/sl";
 import "./Card.css";
 import { useSelector } from "react-redux";
 import Loader from "../Loader";
-import ScrollToTop from "../../Utils/ScrollToTop";
 
 const CompanyCard = () => {
   const navigate = useNavigate();

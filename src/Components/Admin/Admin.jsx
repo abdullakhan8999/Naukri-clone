@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { BsPencilSquare } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import ScrollToTop from "../../Utils/ScrollToTop";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import { LoadUser, UpdateUserDetails } from "../../Actions/UserSignUp";
-import {
-  LoadCompanies,
-  getCompanyDetails,
-} from "../../Actions/CompaniesActions";
-import { loadingRequest, loadingSuccess } from "../../Reducers/uiLoaderReducer";
+import { LoadCompanies } from "../../Actions/CompaniesActions";
 import { LoadJobs } from "../../Actions/JobsActions";
 import JobsSection from "./JobsSection";
 import CompaniesSection from "./CompaniesSection";

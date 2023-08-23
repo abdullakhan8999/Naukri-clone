@@ -24,7 +24,7 @@ const EditJobPage = () => {
   const { loading } = useSelector((state) => state.user);
   const { jobsLoading, jobs } = useSelector((state) => state.jobs);
   const { jobLoading, job } = useSelector((state) => state.job);
-  const { company, companyLoading } = useSelector((state) => state.company);
+  const { companyLoading } = useSelector((state) => state.company);
   const { jobApplicationsLoading } = useSelector((state) => state.applications);
 
   const [selectedRequirement, setSelectedRequirement] = useState("");

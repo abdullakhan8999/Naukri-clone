@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, registerCompany } from "../../Actions/UserSignUp";
-import {
-  categoriesConstant,
-  departmentsConstant,
-} from "../../Constants/GeneralConstants";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { updateCompanyDetails } from "../../Actions/CompaniesActions";
 
 const UpdateCompanyDetailsSection = ({ company, setShowSection }) => {

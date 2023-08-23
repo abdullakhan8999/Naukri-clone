@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import JobsListing from "./JobsListing.jsx";
 import TakeToTop from "../Layout/TakeToTop";
 import { LoadUser, UpdateUserDetails } from "../../Actions/UserSignUp";
-import CompanyJosList from "./CompanyJosList";
 import CompanyPage from "../Company/Company";
 import Admin from "../Admin/Admin";
 

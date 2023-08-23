@@ -12,7 +12,7 @@ import {
   ApplicationStatus,
   applicationsFilter,
 } from "../../Constants/JobApplicationConstants";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ScrollToTop from "../../Utils/ScrollToTop";
 import JobsApplicationsCard from "./JobsApplicationsCard.jsx";
 import { LoadJobs } from "../../Actions/JobsActions";

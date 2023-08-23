@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clearErrors } from "../../Actions/UserSignUp";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   departmentsConstant,
   requirementsConstants,
 } from "../../Constants/GeneralConstants";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { JOB_STATUSES } from "../../Constants/JobConstants";
-import { LoadJobs, createJob, searchJobs } from "../../Actions/JobsActions";
+import { LoadJobs, createJob } from "../../Actions/JobsActions";
 import { useNavigate } from "react-router-dom";
 
 const CreateJob = () => {

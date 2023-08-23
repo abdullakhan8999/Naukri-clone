@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PiSuitcaseFill } from "react-icons/pi";
 import { BsCurrencyRupee, BsFillPinMapFill, BsPinAngle } from "react-icons/bs";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   applyToJob,
@@ -21,7 +21,7 @@ const JobDetailsCard = ({ job, related }) => {
   const navigation = useNavigate();
 
   const HandleCompanyDetailsPage = (id) => {
-    navigation(`/company/${job.company_id}`);
+    navigation(`/company/${id}`);
   };
 
   const { applications } = useSelector((state) => state.applications);

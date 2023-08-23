@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { EmployeeBenefits, location } from "../../Constants/GeneralConstants";
+import React from "react";
+import { EmployeeBenefits } from "../../Constants/GeneralConstants";
 import { BsBriefcase } from "react-icons/bs";
 import { RiMapPin2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import ScrollToTop from "../../Utils/ScrollToTop";
 import { useDispatch, useSelector } from "react-redux";
 import { filterJobsByCompanyName, searchJobs } from "../../Actions/JobsActions";
 import { UserActionRequest } from "../../Actions/searchAction";

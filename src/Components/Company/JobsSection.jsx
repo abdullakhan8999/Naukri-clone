@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
-import {
-  EmployeeBenefits,
-  location,
-  CompanyFilter,
-} from "../../Constants/GeneralConstants";
+import { CompanyFilter } from "../../Constants/GeneralConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import JobDetailsCard from "../JobDetails/JobDetailsCard";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { LoadJobs, searchJobs } from "../../Actions/JobsActions";
-import ScrollToTop from "../../Utils/ScrollToTop";
+import { searchJobs } from "../../Actions/JobsActions";
 
 const JobsSection = ({ company }) => {
   const dispatch = useDispatch();

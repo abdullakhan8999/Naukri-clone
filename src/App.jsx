@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./Components/Home/Home.jsx";
 import LoginSignUpPage from "./Components/LoginSignUp/LoginSignUpPage";
-import Admin from "./Components/Admin/Admin";
-import Card from "./Components/Cards/Card.jsx";
 import Footer from "./Components/Footers.jsx";
 import JobDetails from "./Components/JobDetails/JobDetails.jsx";
 import JobsPage from "./Components/JobsPage/JobsPage.jsx";

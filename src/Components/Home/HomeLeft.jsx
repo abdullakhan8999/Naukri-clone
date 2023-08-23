@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { LuHome } from "react-icons/lu";
 import { BiBriefcaseAlt2 } from "react-icons/bi";

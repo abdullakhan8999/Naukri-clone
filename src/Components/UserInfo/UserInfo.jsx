@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getStudentInfo } from "../../Actions/studentProfileAction";
 import {
   FaEnvelope,
-  FaUser,
   FaUserCircle,
   FaCalendarAlt,
   FaBriefcase,

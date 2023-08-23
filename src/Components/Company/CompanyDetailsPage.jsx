@@ -17,7 +17,7 @@ const CompanyDetailsPage = () => {
   //Variables and state
   let { CompanyId } = useParams();
   const dispatch = useDispatch();
-  const { user, loading } = useSelector((state) => state.user);
+  const { loading } = useSelector((state) => state.user);
   const { company, companyLoading } = useSelector((state) => state.company);
   const { uiLoader } = useSelector((state) => state.uiLoader);
   const [showOverview, setShowOverview] = useState(false);

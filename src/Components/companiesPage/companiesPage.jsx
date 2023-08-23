@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Loader from "../Loader";
 import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";

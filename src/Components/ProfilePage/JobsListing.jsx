@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import ScrollToTop from "../../Utils/ScrollToTop";
 
 const JobsListing = ({ jobId }) => {
-  const dispatch = useDispatch();
   const navigation = useNavigate();
 
   useEffect(() => {

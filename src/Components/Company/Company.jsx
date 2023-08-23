@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader";
-import Header from "../Header/Header";
 import GitHub from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.svg";
 import instagram from "../../assets/instagram.svg";
 import OverViewSection from "./OverViewSection";
 import JobsSection from "./JobsSection";
-import TakeToTop from "../Layout/TakeToTop";
 import ScrollToTop from "../../Utils/ScrollToTop";
 import { getCompanyDetails } from "../../Actions/CompaniesActions";
 import { loadingRequest, loadingSuccess } from "../../Reducers/uiLoaderReducer";
-import { LoadUser } from "../../Actions/UserSignUp";
 import CreateJob from "./CreateJob";
 import UpdateCompanyDetailsSection from "./UpdateCompanyDetailsSection.jsx";
 import DeleteJob from "./DeleteJob";
