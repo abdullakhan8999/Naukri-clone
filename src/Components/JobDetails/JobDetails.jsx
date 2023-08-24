@@ -9,7 +9,7 @@ import { LoadJobsApplications } from "../../Actions/jobApplicationsActions";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ScrollToTop from "../../Utils/ScrollToTop";
 import { getCompanyDetails } from "../../Actions/CompaniesActions";
-import JobDetailsCard from "./JobDetailsCard";
+import JobDetailsCard from "../JobDetails/JobDetailsCard";
 
 const JobDetails = () => {
   useEffect(() => {
