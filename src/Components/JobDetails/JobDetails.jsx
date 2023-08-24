@@ -7,7 +7,7 @@ import FastForward from "../../assets/naukri_job_details.png";
 import { useDispatch, useSelector } from "react-redux";
 import { jobDetailsById } from "../../Actions/JobsActions";
 import { LoadJobsApplications } from "../../Actions/jobApplicationsActions";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ScrollToTop from "../../Utils/ScrollToTop";
 import { getCompanyDetails } from "../../Actions/CompaniesActions";
 
@@ -18,7 +18,6 @@ const JobDetails = () => {
 
   //state and variables
   const dispatch = useDispatch();
-  const navigation = useNavigate();
   let { JobId } = useParams();
   const { loading } = useSelector((state) => state.user);
   const { jobsLoading, jobs } = useSelector((state) => state.jobs);
