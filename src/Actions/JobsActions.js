@@ -1,5 +1,6 @@
 import axios from "axios";
 // const BASE_URL = "http://localhost:8080/api/v1";
+const BASE_URL = "https://crm-backend-system-employee-hiring.onrender.com/api/v1";
 
 import {
    JOB_REQUEST,
@@ -39,7 +40,7 @@ export const createJob = (JobData) => async (dispatch) => {
       // console.log(JobData);
       dispatch({ type: CREATE_JOB_REQUEST });
 
-      let Link = "/api/v1/company/create/job";
+      let Link = BASE_URL + "/company/create/job";
       const config = { headers: { "Content-Type": "application/json" } };
       if (!JobData) return;
 
@@ -59,7 +60,7 @@ export const UpdateJob = (JobData) => async (dispatch) => {
       console.log(JobData);
       dispatch({ type: UPDATE_JOB_REQUEST });
 
-      let Link = "/api/v1/company/update/job";
+      let Link = BASE_URL + "/company/update/job";
       const config = { headers: { "Content-Type": "application/json" } };
       if (!JobData) return;
 
@@ -80,7 +81,7 @@ export const LoadJobs = () => async (dispatch) => {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
 
-      let Link = `/api/v1/jobs`;
+      let Link = BASE_URL + `/jobs`;
 
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -98,8 +99,8 @@ export const searchJobs = (keyword) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: GET_JOBS_REQUEST });
 
-      let Link = `/api/v1/jobs`;
-      if (keyword) Link = `/api/v1/jobs?keyword=${keyword}`;
+      let Link = BASE_URL + `/jobs`;
+      if (keyword) Link += `?keyword=${keyword}`;
 
 
       // Requesting  Data from db
@@ -119,8 +120,8 @@ export const filterJobsByLocation = (keyword) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
 
-      let Link = `/api/v1/jobs`;
-      if (keyword) Link = `/api/v1/jobs?location=${keyword}`;
+      let Link = BASE_URL + `/jobs`;
+      if (keyword) Link += `?location=${keyword}`;
 
 
       // Requesting  Data from db
@@ -140,8 +141,8 @@ export const filterJobsByDepartment = (keyword) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
 
-      let Link = `/api/v1/jobs`;
-      if (keyword) Link = `/api/v1/jobs?department=${keyword}`;
+      let Link = BASE_URL + `/jobs`;
+      if (keyword) Link += `?department=${keyword}`;
 
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -159,9 +160,9 @@ export const filterJobsByExperience = (keyword) => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
-      let Link = `/api/v1/jobs`;
+      let Link = BASE_URL + `/jobs`;
       if (keyword) {
-         Link = `/api/v1/jobs?experience=${keyword}`;
+         Link += `?experience=${keyword}`;
       }
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -179,9 +180,9 @@ export const filterJobsBySalary = (keyword) => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
-      let Link = `/api/v1/jobs`;
+      let Link = BASE_URL + `/jobs`;
       if (keyword) {
-         Link = `/api/v1/jobs?salary=${keyword}`;
+         Link += `?salary=${keyword}`;
       }
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -199,9 +200,9 @@ export const filterJobsByCompanyName = (keyword) => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
-      let Link = `/api/v1/jobs`;
+      let Link = BASE_URL + `/jobs`;
       if (keyword) {
-         Link = `/api/v1/jobs?company_name=${keyword}`;
+         Link += `?company_name=${keyword}`;
       }
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -218,9 +219,9 @@ export const filterJobsByRequirement = (keyword) => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: LOAD_JOBS_REQUEST });
-      let Link = `/api/v1/jobs`;
+      let Link = BASE_URL + `/jobs`;
       if (keyword) {
-         Link = `/api/v1/jobs?requirement=${keyword}`;
+         Link += `?requirement=${keyword}`;
       }
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -242,7 +243,7 @@ export const jobDetailsById = (jobId) => async (dispatch) => {
 
       // Requesting to Backend
       // Requesting  Data
-      const { data } = await axios.get(`/api/v1/job/${jobId}`);
+      const { data } = await axios.get(BASE_URL + `/job/${jobId}`);
 
       dispatch({ type: JOB_SUCCESS, payload: data.job });
    } catch (error) {
@@ -259,7 +260,7 @@ export const applyToJob = (job_id) =>
          // Dispatch request
          dispatch({ type: APPLY_JOB_REQUEST });
 
-         const { data } = await axios.post(`/api/v1/apply/job`, { job_id: job_id });
+         const { data } = await axios.post(BASE_URL + `/apply/job`, { job_id: job_id });
 
          dispatch({ type: APPLY_JOB_SUCCESS, payload: data });
       } catch (error) {
@@ -278,7 +279,7 @@ export const deleteMyApplication = (job_id) => async (dispatch) => {
 
       // Requesting to Backend
       // Requesting  Data
-      const { data } = await axios.delete(`/api/v1/delete/myJob/application/${job_id}`);
+      const { data } = await axios.delete(BASE_URL + `/delete/myJob/application/${job_id}`);
 
       dispatch({ type: DELETE_JOB_APPLICATIONS_SUCCESS, payload: data });
    } catch (error) {
@@ -295,7 +296,7 @@ export const deleteJob = (jobId) => async (dispatch) => {
       dispatch({ type: DELETE_JOB_REQUEST });
 
       if (!jobId) return;
-      let Link = `/api/v1/company/delete/job/${jobId}`
+      let Link = BASE_URL + `/company/delete/job/${jobId}`
 
       // Requesting  Data
       const { data } = await axios.delete(Link);

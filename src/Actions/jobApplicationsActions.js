@@ -1,5 +1,6 @@
 import axios from "axios";
 // const BASE_URL = "http://localhost:8080/api/v1";
+const BASE_URL = "https://crm-backend-system-employee-hiring.onrender.com/api/v1";
 
 
 import {
@@ -32,7 +33,7 @@ export const deleteApplicationById = (application_id) => async (dispatch) => {
       dispatch({ type: DELETE_JOB_APPLICATIONS_ID_REQUEST });
       // Requesting to Backend
       // Requesting  Data
-      const { data } = await axios.delete(`/api/v1/delete/job/application/${application_id}`);
+      const { data } = await axios.delete(BASE_URL + `/delete/job/application/${application_id}`);
 
       dispatch({ type: DELETE_JOB_APPLICATIONS_ID_SUCCESS, payload: data });
    } catch (error) {
@@ -47,7 +48,7 @@ export const LoadJobsApplications = () => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: LOAD_JOB_APPLICATIONS_REQUEST });
-      let Link = `/api/v1/company/job/applications`;
+      let Link = BASE_URL + `/company/job/applications`;
 
       // Requesting  Data from db
       const { data } = await axios.get(Link);
@@ -64,7 +65,7 @@ export const getJobsApplicationsByApplicationStatus = (applicationStatus) => asy
    try {
       // Dispatch request
       dispatch({ type: JOB_APPLICATIONS_REQUEST });
-      let Link = `/api/v1/company/job/applications`;
+      let Link = BASE_URL + `/company/job/applications`;
       if (applicationStatus) Link += `?applicationStatus=${applicationStatus}`
 
       // Requesting  Data from db
@@ -81,7 +82,7 @@ export const getJobsApplicationsByJobsTitle = (title) => async (dispatch) => {
    try {
       // Dispatch request
       dispatch({ type: JOB_APPLICATIONS_REQUEST });
-      let Link = `/api/v1/company/job/applications`;
+      let Link = BASE_URL + `/company/job/applications`;
       if (title) Link += `?title=${title}`
 
       // Requesting  Data from db
@@ -98,7 +99,7 @@ export const getJobsApplicationsByCompanyName = (company_name) => async (dispatc
    try {
       // Dispatch request
       dispatch({ type: GET_JOB_APPLICATIONS_BY_COMPANY_NAME_REQUEST });
-      let Link = `/api/v1/company/job/applications`;
+      let Link = BASE_URL + `/company/job/applications`;
       if (company_name) Link += `?company_name=${company_name}`
 
       // Requesting  Data from db
@@ -119,7 +120,7 @@ export const updateJobApplication = (applicationData) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: UPDATE_JOB_APPLICATIONS_REQUEST });
 
-      let Link = `/api/v1/company/update/jobApplication`;
+      let Link = BASE_URL + `/company/update/jobApplication`;
       const config = { headers: { "Content-Type": "application/json" } };
 
       // Requesting  Data from db

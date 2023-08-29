@@ -1,5 +1,6 @@
 import axios from "axios";
 // const BASE_URL = "http://localhost:8080/api/v1";
+const BASE_URL = "https://crm-backend-system-employee-hiring.onrender.com/api/v1";
 
 import {
    LOAD_COMPANIES_REQUEST,
@@ -32,7 +33,7 @@ export const updateCompanyDetails = (companyDetails) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: UPDATE_COMPANY_REQUEST });
 
-      let Link = `/api/v1/update/details`;
+      let Link = BASE_URL + `/update/details`;
       if (!companyDetails) return;
       const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await axios.put(Link, companyDetails, config);
@@ -51,7 +52,7 @@ export const LoadCompanies = () => async (dispatch) => {
       dispatch({ type: LOAD_COMPANIES_REQUEST });
 
       // Requesting  Data from db
-      const { data } = await axios.get(`/api/v1/companies`,);
+      const { data } = await axios.get(BASE_URL + `/companies`,);
       dispatch({ type: LOAD_COMPANIES_SUCCESS, payload: data.companies });
    } catch (error) {
       console.log("Error", error);
@@ -66,7 +67,7 @@ export const searchCompanies = (keyword) => async (dispatch) => {
       // Dispatch request
       dispatch({ type: GET_COMPANIES_DETAILS_REQUEST });
 
-      let Link = `/api/v1/companies`;
+      let Link = BASE_URL + `/companies`;
       if (keyword) Link += `?keyword=${keyword}`;
 
 
@@ -89,7 +90,7 @@ export const getCompanyDetails = (company_id,) => async (dispatch) => {
 
       // console.log(company_id);
       // Requesting  Data from db
-      let Link = "/api/v1/company/details/";
+      let Link = BASE_URL + "/company/details/";
       if (!company_id) return;
       Link += `${company_id}`;
       // console.log(Link)
@@ -110,7 +111,7 @@ export const filterCompaniesCategories = (category) => async (dispatch) => {
       dispatch({ type: FILTER_COMPANIES_REQUEST });
 
       // Requesting  Data from db
-      let Link = `/api/v1/companies`
+      let Link = BASE_URL + `/companies`
       if (category) {
          Link += `?companyCategories=${category}`
       }
@@ -131,7 +132,7 @@ export const searchCompaniesName = (name) => async (dispatch) => {
       dispatch({ type: GET_COMPANIES_DETAILS_REQUEST });
 
       // Requesting  Data from db
-      let Link = `/api/v1/companies`
+      let Link = BASE_URL + `/companies`
       if (name) {
          Link += `?name=${name}`
       }
